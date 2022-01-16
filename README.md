@@ -1,11 +1,38 @@
 # HandTrackingModule
 
-The module server 3 main perpus:
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the requirements:
+
+```bash
+pip install opencv-python
+pip install mediapipe
+```
+
+The module server 3 main purpose:
 1. findhand
 2. findpostion
 3. fingersup
 
-# The above 3 are the realy functions of the module which can be used just by calling after import this module in any of you projects
+### The above 3 are the real functions of the module which can be used just by calling after import this module in any of your projects
+
+```python
+import HandTrackingModule as htm
+
+dectetor= htm.handdectetor()
+
+# returns 'image'
+dectetor.findhands(img)
+
+# returns 'list of id,x,y'
+dectetor.finposition(img)
+
+# returns 'list of 0&1'
+#default/Right hand
+dectetor.fingersup()
+#For Left hand
+dectetor.fingersup(handNo=1)
+```
 
 ## The Findhand Function:
 
@@ -17,4 +44,4 @@ It provide a list with the x,y coorinate of each and every tracked pointers of y
 
 ## The FingerUp Function:
 
-This function informs which of the fingures are out while tracking, and it returns a list of 5 where which ever finger is out it append 1 for it else 0, NOTE: The cases for left and right hand may differ, therfore its advices to specify the hand while calling the function where : Lefthand=0 & Righthand=1.
+This function informs which of the fingures are out while tracking, and it returns a list of 5 where which ever finger is out it append 1 for it else 0, NOTE: The cases for left and right hand may differ, therfore its advices to specify the hand while calling the function where : Lefthand=1 & Righthand=0.
